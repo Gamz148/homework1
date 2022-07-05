@@ -1,14 +1,12 @@
-from os import mkdir
-from os.path import join, exists
+import os
 
-
-main_dir = "my_project_2"
+prefix_name = "task_7_1"
+main_dir = "my_project1"
 sub_dirs = ["settings", "mainapp", "adminapp", "authapp" ]
-main_path = join(".", main_dir, main_dir)
-if not exists(main_dir): mkdir(main_dir)
-    # Можно было воспользоваться makedirs, у которого есть опция exist_ok
-    # тогда не надо было бы проверять существование
+main_path = os.path.join(".", prefix_name, main_dir)
+if not os.path.exists(main_path): os.mkdir(main_path)
+
 
 for sub_dir in sub_dirs:
-    sub_path = join(".", main_dir, sub_dir)
-    if not exists(sub_path): mkdir(sub_path)
+    sub_path = os.path.join(".", prefix_name, main_dir, sub_dir)
+    if not os.path.exists(sub_path): os.mkdir(sub_path)
